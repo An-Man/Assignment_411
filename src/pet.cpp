@@ -26,7 +26,7 @@ std::vector<Pet> add_pet_to_vector(std::vector<Pet>& pets, Pet new_pet)
 
 std::string input_pet_name()
 {
-    std::cout << "Give a name to your pet: ";
+    std::cout << "Enter pet name: ";
     std::string name;
     std::getline(std::cin >> std::ws, name);
     return name;
@@ -34,8 +34,6 @@ std::string input_pet_name()
 
 std::string input_pet_type()
 {
-
-
     while (true)
     {
         std::cout << "Choose pet type: (a) cat (b) dog (c) bird ?: ";
@@ -61,5 +59,21 @@ std::string input_pet_type()
                 break;
             }
         } 
+    }
+}
+
+void feed_pet(std::vector<Pet>& pets)
+{
+    std::string inp_name{input_pet_name()};
+
+    for (Pet& pet : pets)
+    {
+        if (pet.name == inp_name)
+        {
+            pet.fullness += 25;
+            pet.happiness += 25;
+            std::cout << "Pet fullness +25, now: " << pet.fullness <<'\n';
+            std::cout << "Pet happiness +25, now: " << pet.fullness <<'\n';
+        }
     }
 }

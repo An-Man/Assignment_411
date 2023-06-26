@@ -11,10 +11,12 @@ int main()
 {
     add_pet_to_vector(pets, create_new_pet());
 
-    for (Pet& pet: pets )
+    for (Pet& pet: pets) // prints created pets so far; a test
     {
         std::cout << pet.name << ", " << pet.type << '\n';
     }
+
+    feed_pet(pets); // feeds a pet
 
     return 0;
 }
