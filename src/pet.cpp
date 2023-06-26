@@ -96,3 +96,20 @@ void play_with_pet(std::vector<Pet>& pets)
         }
     }
 }
+
+void put_to_sleep(std::vector<Pet>& pets)
+{
+    std::cout << "To put a pet to sleep,\n";
+    std::string inp_name{input_pet_name()};
+
+    for (Pet& pet : pets)
+    {
+        if (pet.name == inp_name)
+        {
+            pet.energy = 100;
+            pet.is_sleeping = true;
+            std::cout << "Pet is now asleep.\n";
+            std::cout << "Pet energy: " << pet.energy <<'\n';
+        }
+    }
+}
