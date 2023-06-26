@@ -18,5 +18,7 @@ int main()
 
     feed_pet(pets); // feeds a pet
 
+    play_with_pet(pets); // play with a pet
+    
     return 0;
 }

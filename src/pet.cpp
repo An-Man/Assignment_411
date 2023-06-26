@@ -12,6 +12,7 @@ Pet create_new_pet()
     new_pet.type = input_pet_type();
     new_pet.happiness = 50;
     new_pet.fullness = 50;
+    new_pet.energy = 50;
     new_pet.is_sleeping = false;
 
     return new_pet;
@@ -64,6 +65,7 @@ std::string input_pet_type()
 
 void feed_pet(std::vector<Pet>& pets)
 {
+    std::cout << "To feed a pet,\n";
     std::string inp_name{input_pet_name()};
 
     for (Pet& pet : pets)
@@ -74,6 +76,23 @@ void feed_pet(std::vector<Pet>& pets)
             pet.happiness += 25;
             std::cout << "Pet fullness +25, now: " << pet.fullness <<'\n';
             std::cout << "Pet happiness +25, now: " << pet.fullness <<'\n';
+        }
+    }
+}
+
+void play_with_pet(std::vector<Pet>& pets)
+{
+    std::cout << "To play with a pet,\n";
+    std::string inp_name{input_pet_name()};
+
+    for (Pet& pet : pets)
+    {
+        if (pet.name == inp_name)
+        {
+            pet.energy -= 25;
+            pet.happiness += 25;
+            std::cout << "Pet happiness +25, now: " << pet.happiness <<'\n';
+            std::cout << "Pet energy -25, now: " << pet.energy <<'\n';
         }
     }
 }
