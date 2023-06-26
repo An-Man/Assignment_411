@@ -27,4 +27,6 @@ void feed_pet(std::vector<Pet>& pets);
 
 void play_with_pet(std::vector<Pet>& pets);
 
+void put_to_sleep(std::vector<Pet>& pets);
+
 #endif
