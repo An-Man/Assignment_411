@@ -25,4 +25,6 @@ std::vector<Pet> add_pet_to_vector(std::vector<Pet>& pets, Pet new_pet);
 
 void feed_pet(std::vector<Pet>& pets);
 
+void play_with_pet(std::vector<Pet>& pets);
+
 #endif
