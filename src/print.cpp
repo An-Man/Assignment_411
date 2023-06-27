@@ -26,3 +26,13 @@ void print_is_asleep()
 {
     std::cout << "The pet is asleep. Energy 100.\n";
 }
+
+void print_file_error()
+{
+    std::cout << "File error.\n";
+}
+
+void print_saved_to_file()
+{
+    std::cout << "Saved pet state to file.\n";
+}

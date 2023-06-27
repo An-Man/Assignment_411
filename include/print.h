@@ -13,4 +13,8 @@ void print_played();
 
 void print_is_asleep();
 
+void print_file_error();
+
+void print_saved_to_file();
+
 #endif
