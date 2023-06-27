@@ -1,15 +1,16 @@
 #include "pet.h"
+#include "print.h"
 #include <iostream>
 #include <string>
 #include <vector>
 
 //Pet functions
 
-Pet create_new_pet()
+Pet create_new_pet(std::string name, std::string type)
 {
     Pet new_pet;
-    new_pet.name = input_pet_name();
-    new_pet.type = input_pet_type();
+    new_pet.name = name,
+    new_pet.type = type,
     new_pet.happiness = 50;
     new_pet.fullness = 50;
     new_pet.energy = 50;
@@ -25,91 +26,81 @@ std::vector<Pet> add_pet_to_vector(std::vector<Pet>& pets, Pet new_pet)
     return pets;
 }
 
-std::string input_pet_name()
+
+int feed_pet(std::vector<Pet>& pets, std::string name)
 {
-    std::cout << "Enter pet name: ";
-    std::string name;
-    std::getline(std::cin >> std::ws, name);
-    return name;
-}
-
-std::string input_pet_type()
-{
-    while (true)
-    {
-        std::cout << "Choose pet type: (a) cat (b) dog (c) bird ?: ";
-        char input_type;
-        std::cin >> input_type;
-
-        switch (input_type)
-        {
-            case 'a':
-            {
-                return "cat";
-            }
-            case 'b':
-            {
-                return "dog"; 
-            }
-            case 'c':
-            {
-                return "bird";
-            }
-            default:
-            {
-                break;
-            }
-        } 
-    }
-}
-
-void feed_pet(std::vector<Pet>& pets)
-{
-    std::cout << "To feed a pet,\n";
-    std::string inp_name{input_pet_name()};
-
     for (Pet& pet : pets)
     {
-        if (pet.name == inp_name)
+        if (pet.name == name)
         {
             pet.fullness += 25;
             pet.happiness += 25;
-            std::cout << "Pet fullness +25, now: " << pet.fullness <<'\n';
-            std::cout << "Pet happiness +25, now: " << pet.fullness <<'\n';
+            print_was_fed();
+            return 0;
         }
     }
+    return -1;
 }
 
-void play_with_pet(std::vector<Pet>& pets)
+int play_with_pet(std::vector<Pet>& pets, std::string name)
 {
-    std::cout << "To play with a pet,\n";
-    std::string inp_name{input_pet_name()};
-
     for (Pet& pet : pets)
     {
-        if (pet.name == inp_name)
+        if (pet.name == name)
         {
             pet.energy -= 25;
             pet.happiness += 25;
-            std::cout << "Pet happiness +25, now: " << pet.happiness <<'\n';
-            std::cout << "Pet energy -25, now: " << pet.energy <<'\n';
-        }
+            print_played();
+            return 0;
+        } 
     }
+    return -1;
 }
 
-void put_to_sleep(std::vector<Pet>& pets)
+int put_to_sleep(std::vector<Pet>& pets, std::string name)
 {
-    std::cout << "To put a pet to sleep,\n";
-    std::string inp_name{input_pet_name()};
-
     for (Pet& pet : pets)
     {
-        if (pet.name == inp_name)
+        if (pet.name == name)
         {
             pet.energy = 100;
             pet.is_sleeping = true;
-            std::cout << "Pet is now asleep.\n";
-            std::cout << "Pet energy: " << pet.energy <<'\n';
+            print_is_asleep();
+            return pet.energy;
         }
     }
+    return -1;
+}
+
+int get_pet_happiness(std::vector<Pet>& pets, std::string name)
+{
+    for (Pet& pet : pets)
+    {
+        if (pet.name == name) {
+            return pet.happiness;
+        }     
+    }
+    return -1000;
+}
+
+int get_pet_fullness(std::vector<Pet>& pets, std::string name)
+{
+    for (Pet& pet : pets)
+    {
+        if (pet.name == name) {
+            return pet.fullness;
+        }
+    }
+    return -1000;
+}
+
+int get_pet_energy(std::vector<Pet>& pets, std::string name)
+{
+    for (Pet& pet : pets)
+    {
+        if (pet.name == name) {
+            return pet.energy;
+        }
+    }
+    return -1000;
 }
