@@ -4,6 +4,7 @@
 
 #include "pet.h"
 #include "print.h"
+#include "fileop.h"
 #include <iostream>
 
 std::vector<Pet> pets {};
@@ -12,7 +13,7 @@ int main()
 {
     // so far, no user interface
     
-    std::string name {"Meow"};
+    std::string name {"Bobby"};
     std::string type {"cat"};
 
     Pet new_pet = create_new_pet(name, type);
@@ -28,6 +29,10 @@ int main()
     put_to_sleep(pets, name); 
 
     print_stats(pets, name);
+
+    print_to_file(pets, "pet.txt");
+
+    // load_from_file("pet.txt"); in the next issue
 
     return 0;
 }
