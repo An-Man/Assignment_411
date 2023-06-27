@@ -4,8 +4,6 @@
 #include <string>
 #include <vector>
 
-
-
 struct Pet {
     std::string name {};
     std::string type {};
@@ -15,18 +13,19 @@ struct Pet {
     bool is_sleeping {false};
 };
 
-std::string input_pet_name();
 
-std::string input_pet_type();
-
-Pet create_new_pet();
+Pet create_new_pet(std::string name, std::string type);
 
 std::vector<Pet> add_pet_to_vector(std::vector<Pet>& pets, Pet new_pet);
 
-void feed_pet(std::vector<Pet>& pets);
+int feed_pet(std::vector<Pet>& pets, std::string name);
 
-void play_with_pet(std::vector<Pet>& pets);
+int play_with_pet(std::vector<Pet>& pets, std::string name);
 
-void put_to_sleep(std::vector<Pet>& pets);
+int put_to_sleep(std::vector<Pet>& pets, std::string name);
+
+int get_pet_happiness(std::vector<Pet>& pets, std::string name);
+int get_pet_fullness(std::vector<Pet>& pets, std::string name);
+int get_pet_energy(std::vector<Pet>& pets, std::string name);
 
 #endif
