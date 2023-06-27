@@ -13,7 +13,6 @@ struct Pet {
     bool is_sleeping {false};
 };
 
-
 Pet create_new_pet(std::string name, std::string type);
 
 std::vector<Pet> add_pet_to_vector(std::vector<Pet>& pets, Pet new_pet);
