@@ -1,8 +1,10 @@
-#include "pet.h"
-#include "print.h"
+#include "../include/pet.h"
+#include "../include/print.h"
 #include <iostream>
 #include <string>
 #include <vector>
+
+
 
 void print_stats(std::vector<Pet>& pets, std::string name)
 {
@@ -11,6 +13,8 @@ void print_stats(std::vector<Pet>& pets, std::string name)
     std::cout << "Fullness: " << get_pet_fullness(pets, name) << '\n';
     std::cout << "Energy: " << get_pet_energy(pets, name) << '\n';
 }
+
+// these are not implemented except for the filestream ones
 
 void print_was_fed()
 {
