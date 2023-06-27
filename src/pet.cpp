@@ -1,5 +1,5 @@
-#include "pet.h"
-#include "print.h"
+#include "../include/pet.h"
+// #include "../include/print.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -35,7 +35,7 @@ int feed_pet(std::vector<Pet>& pets, std::string name)
         {
             pet.fullness += 25;
             pet.happiness += 25;
-            print_was_fed();
+            // print_was_fed();
             return 0;
         }
     }
@@ -50,7 +50,7 @@ int play_with_pet(std::vector<Pet>& pets, std::string name)
         {
             pet.energy -= 25;
             pet.happiness += 25;
-            print_played();
+            // print_played();
             return 0;
         } 
     }
@@ -65,7 +65,7 @@ int put_to_sleep(std::vector<Pet>& pets, std::string name)
         {
             pet.energy = 100;
             pet.is_sleeping = true;
-            print_is_asleep();
+            // print_is_asleep()
             return pet.energy;
         }
     }
