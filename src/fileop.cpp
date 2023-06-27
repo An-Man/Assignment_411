@@ -26,15 +26,14 @@ int print_to_file(std::vector<Pet>& pets, std::string filename)
     return 0;
 }
 
-/* 
+
 std::vector<Pet> load_from_file(std::string filename)
 {
-    std::vector<Pet> saved_pets {};
     std::ifstream inputfile(filename);
-
+    
     if (!inputfile.is_open())
     {
-        print_file_error();
+        print_file_error(); // throw exception? return empty pet?
     }
 
     std::string line;
@@ -48,12 +47,19 @@ std::vector<Pet> load_from_file(std::string filename)
         saved_pet.name = input;
     std::getline(iss, input, ',');
         saved_pet.type = input;
-        // saved_pet.happiness = input;
-        // saved_pet.fullness = input;
+    std::getline(iss, input, ',');
+        saved_pet.happiness = std::stoi(input);
+    std::getline(iss, input, ',');
+        saved_pet.fullness = std::stoi(input);
+    std::getline(iss, input, ',');
+        saved_pet.energy = std::stoi(input);
+    std::getline(iss, input, ',');
+        saved_pet.is_sleeping = std::stoi(input);          
 
-    std::cout << saved_pet.name << ',' << saved_pet.type << '\n';
+    inputfile.close();
+    
+    std::vector<Pet> saved {};
+    saved.push_back(saved_pet);
 
-    return saved_pets;
-
+    return saved;
 } 
-*/

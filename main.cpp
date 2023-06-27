@@ -12,6 +12,7 @@ std::vector<Pet> pets {};
 int main()
 {
     // so far, no user interface
+    // The functionalities are just tested here
     
     std::string name {"Bobby"};
     std::string type {"cat"};
@@ -23,16 +24,16 @@ int main()
     print_stats(pets, name);
 
     feed_pet(pets, name);
-
     play_with_pet(pets, name);
-
     put_to_sleep(pets, name); 
 
     print_stats(pets, name);
 
     print_to_file(pets, "pet.txt");
 
-    // load_from_file("pet.txt"); in the next issue
+    pets = load_from_file("pet.txt");
+
+    print_stats(pets, name);
 
     return 0;
 }
